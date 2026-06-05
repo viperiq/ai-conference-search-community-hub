@@ -60,7 +60,7 @@ This screenshot captures the LLaMa-3 powered chat interface responding to comple
 add event form
 > ![event-form](images/Screenshot_5-6-2026_10055_localhost.jpeg)
 confhub event style
-> ![event](images/Screenshot_5-6-2026_95631_localhost)
+> ![event](images/Screenshot_5-6-2026_95631_localhost.jpeg)
 ---
 
 ## Technology Stack Breakdown
