@@ -41,18 +41,15 @@ ConfHub eliminates the traditional headaches of local environment setups, comple
 
 **Community Feed & Discussions**
 This view highlights the asynchronous post composer and the chronological feed where users can interact with media-rich event announcements and peer questions.
-> **[ PLACEHOLDER: Add your post.php screenshot here ]**
-> *Replace this line with:* `![Community Feed](images/screenshot-feed.png)`
+> ![Community Feed](images/feed.png)
 
 **User Profile & Analytics Panel**
 This interface demonstrates the customized user dashboard, showcasing engagement metrics, active interest tags, and a historical grid of hosted conferences.
-> **[ PLACEHOLDER: Add your profile.php screenshot here ]**
-> *Replace this line with:* `![User Profile](images/screenshot-profile.png)`
+> ![User Profile](images/profile.png)
 
 **AI Search & Chatbot Interface**
 This screenshot captures the LLaMa-3 powered chat interface responding to complex user queries with synthesized, accurate event data.
-> **[ PLACEHOLDER: Add your chatbot search screenshot here ]**
-> *Replace this line with:* `![AI Search](images/screenshot-search.png)`
+> ![AI Search](images/screenshot_search.jpeg)
 
 ---
 
