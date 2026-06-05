@@ -45,11 +45,11 @@ This view highlights the asynchronous post composer and the chronological feed w
 
 **User Profile & Analytics Panel**
 This interface demonstrates the customized user dashboard, showcasing engagement metrics, active interest tags, and a historical grid of hosted conferences.
-> ![User Profile](images/profile.png)
+> ![User Profile](images/profile_image.png)
 
 **AI Search & Chatbot Interface**
 This screenshot captures the LLaMa-3 powered chat interface responding to complex user queries with synthesized, accurate event data.
-> ![AI Search](images/screenshot_search.jpeg)
+> ![AI Search](images/Screenshot_search.jpeg)
 
 ---
 
