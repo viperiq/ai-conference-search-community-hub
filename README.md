@@ -41,7 +41,7 @@ ConfHub eliminates the traditional headaches of local environment setups, comple
 
 **Community Feed & Discussions**
 This view highlights the asynchronous post composer and the chronological feed where users can interact with media-rich event announcements and peer questions.
-> ![Community Feed](images/feed.png)
+> ![Community Feed](images/feed.jpeg)
 
 **User Profile & Analytics Panel**
 This interface demonstrates the customized user dashboard, showcasing engagement metrics, active interest tags, and a historical grid of hosted conferences.
