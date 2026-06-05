@@ -51,6 +51,10 @@ This interface demonstrates the customized user dashboard, showcasing engagement
 This screenshot captures the LLaMa-3 powered chat interface responding to complex user queries with synthesized, accurate event data.
 > ![AI Search](images/Screenshot_search.jpeg)
 
+**costume + combined search engine**
+customized duckduckgo search engine with result + confhub events search result 
+> ![combined Search](images/Screenshot_5-6-2026_94341_localhost.jpeg)
+> ![combined Search](Screenshot_5-6-2026_9436_localhost.jpeg)
 ---
 
 ## Technology Stack Breakdown
