@@ -3,7 +3,7 @@
 ConfHub is a comprehensive, full-stack web ecosystem designed to bridge the growing gap between academic event discovery and peer-to-peer developer engagement. In today's highly fragmented research landscape, academics, students, and tech professionals often struggle to find relevant conferences, calls for papers (CFPs), and symposiums scattered across thousands of disparate, static university and organizational websites. 
 
 ConfHub solves this systemic issue by combining an intelligent, LLM-powered search microservice with a dynamic, Reddit-style social community platform. By unifying data aggregation with human interaction, ConfHub serves as a centralized, interactive nexus for continuous discovery, technical discussion, and professional networking.
-
+> ![ev](images/Untitled-presentation.gif)
 > ![ConfHub Dashboard](images/main.png)
 
 ---
@@ -62,8 +62,6 @@ add event form
 confhub event style
 > ![event](images/Screenshot_5-6-2026_95631_localhost.jpeg)
 
-> ![ev](images/Untitled-presentation.gif)
-> ![ev](images/Untitled-presentation.mp4)
 ---
 
 ## Technology Stack Breakdown
