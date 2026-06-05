@@ -98,13 +98,13 @@ To enable the smart search and chatbot functionalities, the Python backend must 
    ```bash
    python chatbot.py
 
-###Project Status & Future Roadmap
+### Project Status & Future Roadmap
 This repository currently serves as a highly functional, sophisticated architectural prototype. It has been expressly designed to demonstrate rapid feature iteration, unified user interface architecture, and the viability of complex cross-language stack connectivity (specifically, bridging native PHP with Python-based AI microservices).
 
-####Planned Future Technical Enhancements:
+#### Planned Future Technical Enhancements:
 
-   -OAuth 2.0 Integration: Implementation of standardized authentication flows to allow users seamless, secure social logins via Google, GitHub, or LinkedIn accounts.
+   - OAuth 2.0 Integration: Implementation of standardized authentication flows to allow users seamless, secure social logins via Google, GitHub, or LinkedIn accounts.
 
-   -WebSocket Migration: Transitioning community feed interactions from standard asynchronous HTTP requests to WebSockets, enabling real-time, live-updating comment streams and instant notification pushes.
+   - WebSocket Migration: Transitioning community feed interactions from standard asynchronous HTTP requests to WebSockets, enabling real-time, live-updating comment streams and instant notification pushes.
 
-   -Advanced User Analytics: Expanding the user dashboard to provide granular analytics detailing conference attendance history, networking interaction metrics, and personalized event recommendations based on historical search       vector data.
+   - Advanced User Analytics: Expanding the user dashboard to provide granular analytics detailing conference attendance history, networking interaction metrics, and personalized event recommendations based on historical search       vector data.
