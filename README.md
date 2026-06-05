@@ -4,8 +4,7 @@ ConfHub is a comprehensive, full-stack web ecosystem designed to bridge the grow
 
 ConfHub solves this systemic issue by combining an intelligent, LLM-powered search microservice with a dynamic, Reddit-style social community platform. By unifying data aggregation with human interaction, ConfHub serves as a centralized, interactive nexus for continuous discovery, technical discussion, and professional networking.
 
-> **[ PLACEHOLDER: Add your main website screenshot here ]**
-> *Replace this line with:* `![ConfHub Dashboard](images/screenshot-main.png)`
+> ![ConfHub Dashboard](images/main.png)
 
 ---
 
