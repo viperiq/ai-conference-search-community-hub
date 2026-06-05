@@ -62,7 +62,8 @@ add event form
 confhub event style
 > ![event](images/Screenshot_5-6-2026_95631_localhost.jpeg)
 
-> ![ev](images/Untitled_presentation.gif)
+> ![ev](images/Untitled-presentation.gif)
+> ![ev](images/Untitled-presentation.mp4)
 ---
 
 ## Technology Stack Breakdown
