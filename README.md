@@ -51,8 +51,8 @@ This interface demonstrates the customized user dashboard, showcasing engagement
 This screenshot captures the LLaMa-3 powered chat interface responding to complex user queries with synthesized, accurate event data.
 > ![AI Search](images/Screenshot_search.jpeg)
 
-**costume + combined search engine**
-customized duckduckgo search engine with result + confhub events search result 
+**Combined Search Engine:**
+ Delivers unified results by merging a custom DuckDuckGo web search with ConfHub's event directory.
 > ![combined Search](images/Screenshot_5-6-2026_9436_localhost.jpeg)
 > ![combined Search](images/Screenshot_5-6-2026_94341_localhost.jpeg)
 
@@ -91,3 +91,20 @@ To enable the smart search and chatbot functionalities, the Python backend must 
 2. Install the required Python dependencies to power the API endpoints, web scrapers, and AI routing:
    ```bash
    pip install flask flask-cors requests huggingface_hub duckduckgo_search python-dotenv
+3. To secure your credentials and prevent accidental exposure, create a new file named `.env` in the root directory. Add your Hugging Face API key as follows (this file is pre-configured to be git-ignored for your safety):
+   ```text
+   HF_TOKEN=your_huggingface_token_here
+4. Boot up the local Flask AI server by executing the Python script:
+   ```bash
+   python chatbot.py
+
+###Project Status & Future Roadmap
+This repository currently serves as a highly functional, sophisticated architectural prototype. It has been expressly designed to demonstrate rapid feature iteration, unified user interface architecture, and the viability of complex cross-language stack connectivity (specifically, bridging native PHP with Python-based AI microservices).
+
+####Planned Future Technical Enhancements:
+
+   -OAuth 2.0 Integration: Implementation of standardized authentication flows to allow users seamless, secure social logins via Google, GitHub, or LinkedIn accounts.
+
+   -WebSocket Migration: Transitioning community feed interactions from standard asynchronous HTTP requests to WebSockets, enabling real-time, live-updating comment streams and instant notification pushes.
+
+   -Advanced User Analytics: Expanding the user dashboard to provide granular analytics detailing conference attendance history, networking interaction metrics, and personalized event recommendations based on historical search       vector data.
