@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+/* Reset and general styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+}
+
+
+form {
+    margin: 40px auto;
+    height: auto;
+    max-width: 400px;
+    background-color: #fff;
+    color: #3C32A3;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    border: 2px solid #3C32A3;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Changed to six columns */
+    grid-gap: 20px;
+}
+
+
+h1 {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 4.4rem;
+    margin-bottom: 20px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 0px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    grid-column: span 1;
+}
+p{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+a{
+    color: black;
+}
+input{    
+    border: 1px solid #3C32A3;
+    border-radius: 4px;
+    font-family: "Quicksand", sans-serif;
+    color:#3C32A3;
+    font-weight: 500;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the file input container */
+.file-input-container {
+    position: relative;
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    margin: auto; /* Center the container within the form-group */
+    border-radius: 50%; /* Create a circular border */
+    overflow: hidden;
+    background-color: #fff; /* Set background color */
+}
+
+/* Style for the file input label */
+.file-input-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Style for the image within the file input label */
+.file-input-label img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Ensure the image is circular */
+    transition: filter 0.3s ease; /* Add a smooth transition effect for filter changes */
+}
+
+/* Hover effect for the file input label */
+.file-input-container:hover .file-input-label {
+    background-color: #7a7a7a41; /* Change this to your desired hover color */
+}
+
+/* Hover effect for the image within the file input label */
+.file-input-container:hover .file-input-label img {
+    filter: opacity(0.3); /* Change this to your desired filter effect */
+}
+
+button {
+    background-color: #3C32A3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #332b8f;
+}
+
+p {
+    margin-top: 10px;
+    font-weight: 500;
+}

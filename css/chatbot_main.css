@@ -1,0 +1,76 @@
+/* c:\Users\Lenovo\Desktop\xmapp\htdocs\final - v2\css\chatbot_main.css */
+
+:root {
+    --chat-primary: #6366f1; /* Modern Indigo Accent */
+    --chat-primary-dark: #4f46e5; /* Darker shade for hover/gradient */
+    --chat-bg: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    --chat-border: #e5e7eb; /* Light gray border */
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition-fast: all 0.2s ease-in-out;
+    --transition-medium: all 0.3s ease-in-out;
+}
+
+/* Floating Action Button (FAB) */
+.chatbot-toggle-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chat-primary), var(--chat-primary-dark));
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: var(--transition-fast);
+}
+
+.chatbot-toggle-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.15), 0 10px 12px -6px rgba(0, 0, 0, 0.08);
+}
+
+/* Chatbot Iframe Container Styling (applied to the iframe itself) */
+.chatbot-iframe-container {
+    position: fixed;
+    bottom: 96px; /* Adjust based on button height + margin */
+    right: 24px;
+    width: 380px; /* Fixed width for the chat window */
+    height: 520px; /* Fixed height for the chat window */
+    max-height: calc(100vh - 120px); /* Ensure it doesn't go off screen */
+    background: var(--chat-bg); /* Background for the iframe itself */
+    border: 1px solid var(--chat-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden; /* Important for rounded corners */
+    z-index: 9998;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-medium);
+}
+
+/* Open State for iframe */
+.chatbot-iframe-container.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments for smaller screens (if iframe itself is resized) */
+@media (max-width: 480px) {
+    .chatbot-iframe-container {
+        width: 100vw;
+        height: 100vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+}

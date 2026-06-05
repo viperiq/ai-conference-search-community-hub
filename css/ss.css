@@ -1,0 +1,104 @@
+/* Add this to your existing style.css or create a new CSS file */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    color: #1a0dab;
+}
+
+.search-container {
+    text-align: center;
+    margin: 20px;
+}
+
+form {
+    display: inline-block;
+}
+
+#search {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.gcse-searchresults-only {
+    margin: 20px;
+}
+
+/* Style for search results items */
+.gsc-webResult {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Style for search results title */
+.gsc-webResult-title {
+    color: #1a0dab;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style for search results URL */
+.gsc-webResult div.gsc-url-top {
+    color: #006621;
+    font-size: 14px;
+}
+
+/* Style for search results snippet/description */
+.gsc-webResult div.gs-bidi-start-align.gs-snippet {
+    color: #545454;
+    font-size: 16px;
+}
+
+/* Style for search results container */
+.gsc-webResult.gsc-result {
+    margin-bottom: 20px;
+}
+
+/* Style for search results page navigation */
+.gsc-cursor {
+    margin-top: 20px;
+}
+
+/* Style for active page in the navigation */
+.gsc-cursor-page.gsc-cursor-current-page {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Style for the search box in the search results */
+.gsc-search-box {
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .search-container {
+        margin: 10px;
+    }
+
+    .gsc-webResult {
+        padding: 15px;
+    }
+}

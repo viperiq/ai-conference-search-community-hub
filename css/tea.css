@@ -1,0 +1,137 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+.post-content, .comment-content {
+  word-wrap: break-word;
+}
+.posts-section {
+  margin: 20px auto;
+  width: 600px; /* Adjust width as needed */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Row containing user details, name, and time */
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-header p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Post title */
+.post-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Post content */
+.post-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Post image */
+.post-image img {
+  width: 100%; /* Make image span the full width of the post */
+  height: 300px; /* Set a constant height */
+  object-fit: cover; /* Ensure image fits the height */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Post footer (likes, comment toggle button) */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-footer button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.comment-section {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  display: none;
+}
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.comment-meta {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+
+/* Comment form */
+.comment-form input {
+  width: 80%; /* Set width to 100% for good visibility */
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.comment-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+}

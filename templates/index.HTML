@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+<title>Conference Chatbot</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/chatbot.css"> <!-- Link to the new CSS file -->
+<style>
+    /* No inline styles needed here, all moved to chatbot.css */
+</style>
+</head>
+<body>
+
+<main>
+    <header class="chat-header">
+        <div class="chat-header-info">
+            <div class="chat-header-avatar">AI</div>
+            <div class="chat-header-title">
+                <h3>ConfHub Assistant</h3>
+            </div>
+        </div>
+        <button class="chat-close-btn" id="chatClose">&times;</button>
+    </header>
+    
+    <section class="chat-body" id="chat-messages" aria-live="polite">
+        <div class="chat-bubble bot">
+            Hello! How can I assist you today?
+        </div>
+    </section>
+    
+    <form class="chat-footer" id="chat-form">
+        <input 
+            id="chat-input" 
+            type="text" 
+            placeholder="Ask about a conference..." 
+            aria-label="Chat input"
+            autocomplete="off"
+            required
+            class="chat-input"
+        />
+        <button id="chat-send" type="submit" aria-label="Send message" class="chat-send-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+    </form>
+</main>
+
+<script>
+const chatForm = document.getElementById("chat-form");
+const inputBox = document.getElementById("chat-input");
+const sendBtn = document.getElementById("chat-send"); // Keep this if you need to disable/enable
+const messagesContainer = document.getElementById("chat-messages");
+
+// Automatically scroll to the latest message
+function scrollToBottom() {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Helper to safely create text nodes (Prevents XSS attacks)
+// Upgraded function to handle Markdown and Rich Text securely
+function addMessage(text, type = "ai") {
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("chat-bubble", type);
+
+    if (type === "ai") {
+        // 1. Convert Markdown to HTML
+        const rawHTML = marked.parse(text); // Ensure 'marked' is loaded
+        
+        // 2. Sanitize the HTML to prevent XSS attacks
+        const cleanHTML = DOMPurify.sanitize(rawHTML);
+        
+        // 3. Inject the clean HTML
+        msgDiv.innerHTML = cleanHTML;
+    } else {
+        // User messages remain strictly plain text for security
+        msgDiv.textContent = text;
+    }
+
+    messagesContainer.appendChild(msgDiv);
+    scrollToBottom();
+}
+
+// Renders the typing indicator
+function showTypingIndicator() {
+    const typingDiv = document.createElement("div"); // Removed 'message' class as it's not a real message
+    typingDiv.classList.add("typing-indicator");
+    typingDiv.id = "typing-indicator";
+    typingDiv.innerHTML = `
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+    `;
+    messagesContainer.appendChild(typingDiv);
+    scrollToBottom();
+}
+
+function removeTypingIndicator() {
+    const indicator = document.getElementById("typing-indicator");
+    if (indicator) indicator.remove();
+}
+
+// Safely render conference cards
+function addConferenceCards(conferences) {
+    conferences.forEach(conf => {
+        const card = document.createElement("div");
+        card.classList.add("conference-card");
+
+        const link = document.createElement("a");
+        link.href = conf.link;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer"; // Security best practice for target="_blank"
+        link.textContent = conf.title;
+
+        const snippet = document.createElement("div");
+        snippet.classList.add("mt-1.5", "text-slate-600");
+        snippet.textContent = conf.snippet;
+
+        card.appendChild(link);
+        card.appendChild(snippet);
+        messagesContainer.appendChild(card);
+    });
+    scrollToBottom();
+}
+
+// Disable inputs while fetching
+function setInputState(disabled) {
+    inputBox.disabled = disabled;
+    sendBtn.disabled = disabled;
+    if (!disabled) inputBox.focus();
+}
+
+// Handle message submission
+chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Prevents page reload
+    const message = inputBox.value.trim();
+    if (!message) return;
+
+    // 1. Display user message
+    addMessage(message, "user");
+    inputBox.value = "";
+    setInputState(true);
+
+    // 2. Show loading state
+    showTypingIndicator();
+
+    try {
+        const res = await fetch("http://localhost:5000/chat", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({message})
+        });
+        
+        if (!res.ok) throw new Error("Network response was not ok");
+        const data = await res.json();
+
+        // 3. Update UI with response
+        removeTypingIndicator();
+        addMessage(data.response || "No response text found.", "ai");
+
+        if (data.sources && data.sources.length > 0) {
+            addConferenceCards(data.sources);
+        }
+    } catch (e) {
+        removeTypingIndicator();
+        addMessage("Connection failed. Please ensure the server is running.", "error");
+        console.error("Chatbot Error:", e);
+    } finally {
+        setInputState(false);
+    }
+});
+
+// Handle close button click inside the iframe
+document.getElementById("chatClose").addEventListener("click", () => {
+    // Send a message to the parent window to close the chatbot
+    window.parent.postMessage("closeChatbot", "*");
+});
+</script>
+
+</body>
+</html>

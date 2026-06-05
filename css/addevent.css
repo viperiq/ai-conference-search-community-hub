@@ -1,0 +1,249 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary: #3C32A3;
+    --primary-dark: #2e265f;
+    --primary-light: #5d4fc8;
+    --accent: #00E676;
+    --white: #ffffff;
+    --bg-dark: #111111;
+    --bg-light: #f4f6f8;
+    --bg-lighter: #fafafa;
+    --border: #dcdcdc;
+    --border-light: #e8e8e8;
+    --text-main: #333333;
+    --text-label: #444444;
+    --text-secondary: #666666;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.05);
+    --font-main: "Quicksand", sans-serif;
+    --nav-height: 70px;
+    --transition: all 0.3s ease;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+html {
+    /* This sets 1rem = 10px, making math easier */
+    font-size: 62.5%; 
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    /* 1.6rem = 16px. This is the sweet spot for readability */
+    font-size: 1.6rem; 
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+.nav-links a:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.btn-logout {
+    background: rgba(255,255,255,0.15);
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background: var(--accent);
+    color: var(--primary) !important;
+}
+
+/* =========================================
+   4. FORM STYLING (Responsive Grid)
+   ========================================= */
+#event-form {
+    max-width: 1100px;
+    width: 92%; /* Prevents touching edges on mobile */
+    margin: 110px auto 50px; /* Top margin accounts for fixed navbar */
+    background-color: var(--white);
+    color: var(--text-main);
+    
+    /* Responsive Padding: Less on mobile, more on desktop */
+    padding: 25px; 
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    
+    /* Grid System */
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column (Mobile First) */
+    gap: 20px;
+}
+
+/* Fluid Typography for Header */
+#event-form h2 {
+    text-align: center;
+    /* clamp(min, preferred, max) scales text smoothly */
+    font-size: clamp(2.4rem, 5vw, 3.6rem); 
+    margin-bottom: 25px;
+    color: var(--primary);
+    grid-column: 1 / -1;
+}
+
+/* Section labels (group headers) */
+#event-form label.span-6,
+#event-form > label[class*="span"] {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-light);
+    grid-column: 1 / -1;
+}
+
+#event-form label.span-6:first-of-type {
+    margin-top: 0;
+}
+
+/* Input labels */
+#event-form label:not(.span-6):not([class*="span"]) {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-label);
+}
+
+/* Inputs */
+#event-form input,
+#event-form textarea,
+#event-form select {
+    width: 100%;
+    padding: 14px 15px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 1.6rem; /* 16px prevents iOS zooming on focus */
+    color: var(--text-main);
+    transition: var(--transition);
+    min-height: 44px; /* Touch-friendly size */
+}
+
+#event-form input:hover,
+#event-form textarea:hover,
+#event-form select:hover {
+    border-color: var(--primary-light);
+    background-color: #fafbff;
+}
+
+#event-form input:focus,
+#event-form textarea:focus,
+#event-form select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(60, 50, 163, 0.1);
+}
+
+/* Input validation states */
+#event-form input:invalid:not(:placeholder-shown),
+#event-form textarea:invalid:not(:placeholder-shown),
+#event-form select:invalid:not(:placeholder-shown) {
+    border-color: #d32f2f;
+}
+
+#event-form input:valid:not(:placeholder-shown),
+#event-form textarea:valid:not(:placeholder-shown),
+#event-form select:valid:not(:placeholder-shown) {
+    border-color: #388e3c;
+}
+
+/* Textarea height */
+#event-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Fake Image Input */
+.fake-image-input {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width on mobile */
+    max-width: 200px;
+    height: 162px;
+    background-color: #fafafa;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+.fake-image-input:hover {
+    border-color: var(--primary);
+    background-color: #f0f0f5;
+}
+input[type="file"] { display: none; }
+
+/* Button */
+#event-form button {
+    grid-column: 1 / -1;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#event-form button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(60, 50, 163, 0.3);
+}
+
+/* =========================================
+   5. DESKTOP GRID OVERRIDES
+   ========================================= */
+@media screen and (min-width: 768px) {
+    #event-form {
+        padding: 40px 50px; /* More breathing room on desktop */
+        grid-template-columns: repeat(6, 1fr); /* Switch to 6 columns */
+        gap: 24px; /* Slightly larger gap */
+    }
+
+    /* Helper Classes for Grid Spanning */
+    .span-2 { grid-column: span 2; }
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    
+    /* Labels should span full width of their row if needed, or match input */
+    .span-6-label { grid-column: span 6; }
+}

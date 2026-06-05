@@ -1,0 +1,74 @@
+<!-- chatbot_button_responsive.html -->
+<section>
+  <link rel="stylesheet" href="css/chatbot_main.css">
+
+  <!-- Button to open chatbot -->
+  <button class="chatbot-toggle-btn" id="conference-chat-open-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <!-- Overlay -->
+  <div id="conference-chat-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[9997]"></div>
+
+  <!-- Chatbot iframe -->
+  <iframe id="conference-chat-iframe" src="templates/index.html" class="chatbot-iframe-container hidden">
+  </iframe>
+
+  <script>
+    const btn = document.getElementById("conference-chat-open-btn");
+    const overlay = document.getElementById("conference-chat-overlay");
+    const iframe = document.getElementById("conference-chat-iframe");
+    let chatOpen = false;
+
+    btn.addEventListener("click", () => {
+      chatOpen = !chatOpen;
+      if (chatOpen) {
+        overlay.classList.remove("hidden");
+        iframe.classList.remove("hidden");
+        iframe.classList.add("is-active");
+      } else {
+        iframe.classList.remove("is-active");
+        // Delay hiding overlay/iframe to allow transition to complete
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          iframe.classList.add("hidden");
+        }, 300); // Match CSS transition duration
+      }
+    });
+
+    overlay.addEventListener("click", () => {
+      chatOpen = false;
+      iframe.classList.remove("is-active");
+      setTimeout(() => {
+        overlay.classList.add("hidden");
+        iframe.classList.add("hidden");
+      }, 300);
+    });
+
+    // Optional: close popup with ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        chatOpen = false;
+        iframe.classList.remove("is-active");
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          iframe.classList.add("hidden");
+        }, 300);
+      }
+    });
+
+    // Listen for messages from the iframe (e.g., close request)
+    window.addEventListener("message", (event) => {
+      if (event.data === "closeChatbot") {
+        chatOpen = false;
+        iframe.classList.remove("is-active");
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          iframe.classList.add("hidden");
+        }, 300);
+      }
+    });
+  </script>
+</section>

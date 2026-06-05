@@ -1,0 +1,15 @@
+{
+    "name": "confhub/app",
+    "description": "Conference Hub Portal",
+    "require": {
+        "php": ">=8.0",
+        "illuminate/database": "^10.0",
+        "illuminate/view": "^10.0",
+        "illuminate/events": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
